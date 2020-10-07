@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Poem</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+  <body>
+    <div class="page_container">
+      <div class="line left"></div>
+      <div class="line right"></div>
+      <div class="line top"></div>
+      <div class="line bottom"></div>
+      <p class="linenums"></p>
+      <div class="content">
+        <p class="text" contenteditable="true" spellcheck="false"></p>
+      </div>
+      <p class="pagenum">1</p>
+      <p class="title">Osmund</p>
+    </div>
+    <div class="page_container">
+      <div class="line left"></div>
+      <div class="line right"></div>
+      <div class="line top"></div>
+      <div class="line bottom"></div>
+      <p class="linenums"></p>
+      <div class="content">
+        <p class="text" contenteditable="true" spellcheck="false"></p>
+      </div>
+      <p class="pagenum">1</p>
+      <p class="title">Osmund</p>
+    </div>
+    <div class="page_container">
+      <div class="line left"></div>
+      <div class="line right"></div>
+      <div class="line top"></div>
+      <div class="line bottom"></div>
+      <p class="linenums"></p>
+      <div class="content">
+        <p class="text" contenteditable="true" spellcheck="false"></p>
+      </div>
+      <p class="pagenum">1</p>
+      <p class="title">Osmund</p>
+    </div>
+    <div class="page_container">
+      <div class="line left"></div>
+      <div class="line right"></div>
+      <div class="line top"></div>
+      <div class="line bottom"></div>
+      <p class="linenums"></p>
+      <div class="content">
+        <p class="text" contenteditable="true" spellcheck="false"></p>
+      </div>
+      <p class="pagenum">1</p>
+      <p class="title">Osmund</p>
+    </div>
+    <div class="page_container">
+      <div class="line left"></div>
+      <div class="line right"></div>
+      <div class="line top"></div>
+      <div class="line bottom"></div>
+      <p class="linenums"></p>
+      <div class="content">
+        <p class="text" contenteditable="true" spellcheck="false"></p>
+      </div>
+      <p class="pagenum">1</p>
+      <p class="title">Osmund</p>
+    </div>
+
+    <script>
+      function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split('&');
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split('=');
+          if (pair[0] == variable) {
+            return decodeURIComponent(pair[1]);
+          }
+        }
+        return false;
+      }
+      let c = 1;
+      Array.from(document.querySelectorAll('.page_container')).forEach((e, i) => {
+        e.querySelector('.linenums').innerHTML = Array(33)
+          .fill('')
+          .map((el, idx) => {
+            const n = c;
+            c += 1;
+            return "<span style='opacity: " + (c % 10 === 0 || c === 1 ? '1' : '0') + ";'>" + c + '</span>';
+          })
+          .join('');
+        e.querySelector('.pagenum').innerText = i + 1;
+        e.querySelector('.title').innerText = getQueryVariable('poemname') || 'Osmund';
+        e.querySelector('.text').innerHTML = `
+      		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <br>
+      <br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <br>
+      <br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <br>
+      <br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`;
+      });
+    </script>
+  </body>
+</html>
