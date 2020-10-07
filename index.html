@@ -85,7 +85,7 @@
           .map((el, idx) => {
             const n = c;
             c += 1;
-            return "<span style='opacity: " + (c % 10 === 0 || c === 1 ? '1' : '0') + ";'>" + c + '</span>';
+            return "<span style='opacity: " + (n % 10 === 0 || n === 1 ? '1' : '0') + ";'>" + n + '</span>';
           })
           .join('');
         e.querySelector('.pagenum').innerText = i + 1;
